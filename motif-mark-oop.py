@@ -198,8 +198,7 @@ class Gene:
         context.line_to(self.gene_length + xax, yax)
         context.stroke()
 
-
-
+        
 class Genegroup:
     '''
     A GeneGroup object is responsible for telling its children (e.g., Genes,
@@ -234,88 +233,10 @@ for header in fasta_dict.keys():
     gene_number += 1
 
 
-
 for i in big_info_list:
     i.draw_geneobjects()
 
-surface.finish()
 
-# this code block fills lists and calls the defined functions above to fill the lists/dictionaries that are specified above
-#it also sets corresponding colors for the svg outut
-# gene_number = 1
-# for header,sequence in fasta_dict.items():
-#     exons_object = exon(sequence, context, fasta_dict, gene_number, xax, exon_dict)
-#     exons_object.find_exon(sequence)
-#     e = {header:exons_object}
-#     exon_dict.update(e)
-#     motif_object = motif(motif_list, iupac_dict)
-#     motif_object.iupac_finder(motif_list)
-#     motif_regex = iupac_finder(motif_list)
-#     LN = 0
-#     line = 0
-#     for motif, length in motif_regex.items():
-#         indicies_motif = [(m.start(0)) for m in re.finditer(rf'(?=({motif}))', sequence, re.IGNORECASE)]
-#         info_list.append((header, motif, length, indicies_motif))
-#         color_dict_trans_motif[motif] = (color_list[LN])
-#         LN += 1
-#     for motif in motif_list:
-#         color_dict[motif] = (color_list[line])
-#         line += 1
-#         gene_number += 1
-# def draw_svg():
-#     '''
-#     This function is responsible for drawing the svg output of the input fasta and motif files
-#     '''
-#     for motif in motif_list:
-#         x,y,z = color_dict[motif]
-#         context.set_source_rgb(0,0,0)
-#         context.move_to(65 , yax)
-#         context.show_text(motif)
-#         context.set_source_rgb(x,y,z)
-#         context.set_line_width(10)
-#         context.move_to(52, yax-10)
-#         context.line_to(60, yax+10)
-#         context.stroke()
-#         yax += 25
-#     context.set_source_rgb(0,0,0)
-#     context.move_to(65 , yax)
-#     context.show_text("Exon")
-#     context.set_source_rgb(0,0,0)
-#     context.set_line_width(10)
-#     context.move_to(52, yax-10)
-#     context.line_to(60, yax+10)
-#     context.stroke()
-#     ###
-#     for header, sequence in fasta_dict.items():
-#         sequence = sequence.strip()
-#         yax += 100
-#         xax = 65
-#         context.set_source_rgba(0, 0, 0)
-#         context.set_line_width(2)
-#         context.move_to(xax,yax)
-#         context.line_to(len(sequence)+xax,yax)
-#         context.stroke()
-#         x = exon_dict[header][0][0]
-#         y = exon_dict[header][0][1]
-#         context.set_source_rgb(0, 0, 0)
-#         context.set_line_width(30)
-#         context.move_to(x+xax,yax)
-#         context.line_to(y+xax,yax)
-#         context.stroke()
-#         for item in info_list:
-#             if item[0] == header:
-#                 for m, length in motif_regex.items():
-#                     if m == item[1]:
-#                         r,b,g = color_dict_trans_motif[m]
-#                         for index in item[3]:
-#                             line_width = 15
-#                             context.set_source_rgb(r,b,g)
-#                             context.rectangle(index+xax, yax-7, length, line_width)
-#                             context.fill()
-#                             context.set_source_rgb(0,0,0)   
-#                             context.move_to(xax , yax -30 )
-#                             context.show_text(header)
 surface.finish()
-
 #drawing the final output!!
-# draw_svg()
+
